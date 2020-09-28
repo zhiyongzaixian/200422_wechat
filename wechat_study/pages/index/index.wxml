@@ -1,6 +1,8 @@
 <view class="indexContainer">
-  <image class="avatarUrl" src="/static/images/nvsheng.jpg"></image>
-  <text class="userName">{{msg}}</text>
+  <image wx:if='{{userInfo.avatarUrl}}' class="avatarUrl common" src="{{userInfo.avatarUrl}}"></image>
+  <button class="common" wx:else open-type="getUserInfo" bindgetuserinfo='handleGetUserInfo'>获取用户信息</button>
+
+  <text class="userName">{{userInfo.nickName}}</text>
   <!-- 测试事件绑定 -->
   <!-- <view class="goStudy" catchtap='handleParent'>
     <text catchtap='handleChild'>hello world</text>

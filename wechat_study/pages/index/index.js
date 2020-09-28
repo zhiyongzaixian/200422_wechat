@@ -5,8 +5,19 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    msg: '初始化的测试数据111'
+  data: { // 页面需要的所有动态数据都会问data要
+    msg: '初始化的测试数据111',
+    userInfo: {}, // 用户信息
+  },
+  // button弹出授权窗口，获取用户信息的回调
+  handleGetUserInfo(res){
+    console.log(res)
+    if(res.detail.userInfo){ // 用户点击的是允许
+      // 更新userInfo的状态数据
+      this.setData({
+        userInfo: res.detail.userInfo
+      })
+    }
   },
 
   /**
@@ -29,6 +40,18 @@ Page({
     // }, 2000)
 
     
+    // 在用户授权以后，获取用户信息
+    wx.getUserInfo({
+      success: (res) => {
+        console.log('获取用户信息成功', res)
+        this.setData({
+          userInfo: res.userInfo
+        })
+      },
+      fail: (err) => {
+        console.log('获取用户信息失败', err)
+      }
+    })
     
   },
 
