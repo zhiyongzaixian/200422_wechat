@@ -1,4 +1,5 @@
 // pages/index/index.js
+// 初始化页面实例
 Page({
 
   /**
@@ -12,7 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad()')
+    // debugger;
+    console.log('onLoad() 监听页面加载')
 
     // this.setData({
     //   msg: '修改之后的值222'
@@ -25,6 +27,8 @@ Page({
     //   })
     //   console.log(this.data.msg) // 
     // }, 2000)
+
+    
     
   },
 
@@ -35,10 +39,18 @@ Page({
     console.log('child')
   },
 
+  toLogs(){
+    // 跳转至logs页面
+    wx.navigateTo({
+      url: '/pages/logs/logs',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    console.log('onReady() 监听页面初次渲染完成')
 
   },
 
@@ -46,6 +58,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log('onShow() 监听页面显示')
 
   },
 
@@ -53,6 +66,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    console.log('onHide()')
 
   },
 
@@ -60,6 +74,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    console.log('onUnload()')
 
   },
 
