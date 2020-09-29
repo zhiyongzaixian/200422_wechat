@@ -93,7 +93,7 @@
 
 .musicContent {
   width: 96%;
-  background: greenyellow;
+  background: #eee;
 }
 
 .musicItem {
