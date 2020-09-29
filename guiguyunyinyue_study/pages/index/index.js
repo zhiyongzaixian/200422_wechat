@@ -6,6 +6,7 @@ Page({
    */
   data: {
     bannerList: [], // banner轮播图数据
+    recommendList: [], // 推荐歌曲
   },
 
   /**
@@ -13,27 +14,16 @@ Page({
    */
   onLoad: async function (options) {
     // 发送请求获取banner的数据
-    // wx.request({
-    //   url: 'http://localhost:3000/banner',
-    //   data: {type: 2},
-    //   success: (res) => {
-    //     console.log(res);
-    //     // 更新bannerList数据
-    //     this.setData({
-    //       bannerList: res.data.banners
-    //     })
-    //   },
-    //   fail: (err) => {
-    //     console.log(err);
-    //   }
-    // })
-  
-  
     let bannerListData = await request('/banner', {type: 2})
     this.setData({
       bannerList: bannerListData.banners
     })
 
+    // 获取推荐歌曲的数据
+    let recommendListData = await request('/personalized', {limit: 15})
+    this.setData({
+      recommendList: recommendListData.result
+    })
   },
 
   /**

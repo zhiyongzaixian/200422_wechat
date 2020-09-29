@@ -43,22 +43,11 @@
   padding: 20rpx;
 }
 
-.recommendContainer .header .title {
-  font-size: 28rpx;
-  color: #333;
-  line-height: 60rpx;
-}
 
-.recommendContainer .header .more {
-  float: right;
-  font-size: 24rpx;
-  border: 1rpx solid #333;
-  border-radius: 10rpx;
-  padding: 6rpx 20rpx;
-}
 
 .recommendScroll {
   display: flex;
+  height: 300rpx;
 }
 
 .recommendScroll .scrollItem {
@@ -85,4 +74,47 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+
+/* 排行榜 */
+.topList{
+  padding: 20rpx;
+}
+
+.topListSwiper {
+  height: 420rpx;
+}
+
+.topListSwiper .title {
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.musicContent {
+  width: 96%;
+  background: greenyellow;
+}
+
+.musicItem {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+.musicItem image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+
+.musicItem .count {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.musicItem .musicName {
+  font-size: 26rpx;
+  line-height: 100rpx;
 }
