@@ -7,3 +7,82 @@
   width: 100%;
   height: 300rpx;
 }
+
+.navContainer {
+  display: flex;
+
+}
+.navItem {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* 字体图标样式 */
+.navItem .iconfont {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  background: rgb(240, 19, 19);
+  font-size: 50rpx;
+  color: #fff;
+  margin: 20rpx 0;
+}
+
+.navItem text {
+  font-size: 26rpx;
+}
+
+
+/* 推荐歌曲 */
+.recommendContainer {
+  padding: 20rpx;
+}
+
+.recommendContainer .header .title {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 60rpx;
+}
+
+.recommendContainer .header .more {
+  float: right;
+  font-size: 24rpx;
+  border: 1rpx solid #333;
+  border-radius: 10rpx;
+  padding: 6rpx 20rpx;
+}
+
+.recommendScroll {
+  display: flex;
+}
+
+.recommendScroll .scrollItem {
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+
+.recommendScroll .scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.recommendScroll .scrollItem text {
+  font-size: 26rpx;
+  /*单行文本溢出*/
+  /*display: block;*/
+  /*white-space: nowrap;*/
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
+
+  /* 多行文本溢出 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
