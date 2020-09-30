@@ -13,12 +13,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    // 判断用户是否登录
+    let userInfo =  wx.getStorageSync('userInfo')
+    if(!userInfo){
+      wx.reLaunch({
+        url: '/pages/login/login'
+      })
+      return;
+    }
     // 发请求获取导航标签的数据
     let videoGroupListData = await request('/video/group/list')
     this.setData({
       videoGroupList:videoGroupListData.data.slice(0, 14),
       navId: videoGroupListData.data[0].id
     })
+    
+    
+    
+    // 获取导航标签对应的视频列表数据
+    let videoListData = await request('/video/group', {id: this.data.navId});
+    console.log(videoListData);
   },
 
   // 切换导航id

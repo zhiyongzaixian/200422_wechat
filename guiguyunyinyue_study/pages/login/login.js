@@ -74,7 +74,8 @@ Page({
     }
   
     // 后端验证，发请求给服务器
-    let result = await request('/login/cellphone', {phone, password})
+    let result = await request('/login/cellphone', {phone, password, isLogin: true})
+    console.log(result);
     if(result.code === 200){
       wx.showToast({
         title: '登录成功'

@@ -23,6 +23,20 @@
 
 // 封装一个发请求的功能函数
 import config from './config'
+
+// let musicStr = wx.getStorageSync('cookie').find(item => /MUSIC_U/.test(item));
+// let cookie = musicStr.split(';')[0];
+
+/**  2020/9/30
+  作者: Created by zhiyongzaixian
+  说明: 操作cookie流程说明：
+    
+*/
+
+
+let cookie = wx.getStorageSync('cookie')?wx.getStorageSync('cookie').find(item => /MUSIC_U/.test(item)).split(';')[0]:'';
+
+
 export default (url, data={}, method='GET') => {
   return new Promise((resolve, reject) => {
     // 1. new Promise的产生实例，同时实例的状态pending
@@ -30,7 +44,20 @@ export default (url, data={}, method='GET') => {
       url: config.host + url,
       data,
       method,
+      header: {
+        // cookie: wx.getStorageSync('cookie').toString()
+        cookie: cookie
+      },
       success: (res) => {
+        console.log(res);
+        // 当前的请求是登录请求
+        if(data.isLogin){
+          // 将对应的cookies存入至本地
+          wx.setStorage({
+            key: 'cookie',
+            data: res.cookies
+          })
+        }
         resolve(res.data); // 修改promise实例的状态为成功状态resolved
       },
       fail: (err) => {
