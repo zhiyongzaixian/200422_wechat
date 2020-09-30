@@ -1,1 +1,62 @@
-/* pages/video/video.wxss */
+.header {
+  display: flex;
+  padding: 10rpx;
+}
+.header image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+
+.search {
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+  /*
+    flex:
+
+      1) flex-grow(拉伸): 0 flex-shrink(压缩): 1 flex-basies: auto
+    flex: 1
+       1) 其父元素宽度自动为100%
+       2) flex-grow(拉伸): 1 flex-shrink(压缩): 1 flex-basies: 0%(默认自身的宽度为0， 需要根据剩余的宽度自动计算)
+    flex: auto
+      flex-grow(拉伸): 1 flex-shrink(压缩): 1 flex-basies: auto
+  */
+  flex: 1;
+  margin: 0 20rpx;
+}
+
+.search input {
+  width: 100%;
+  height: 100%;
+}
+
+.search .placeholder {
+  font-size: 26rpx;
+  color: #d43c33;
+  text-align: center;
+}
+
+
+
+ /* 导航区域 */
+.navScroll {
+  display: flex;
+  white-space: nowrap;
+}
+
+
+.navItem {
+  padding: 0 20rpx;
+}
+
+
+.contentItem {
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}
+
+
+.contentItem.active {
+  border-bottom: 1rpx solid red;
+}
