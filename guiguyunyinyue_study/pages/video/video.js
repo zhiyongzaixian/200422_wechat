@@ -32,7 +32,14 @@ Page({
     
     // 获取导航标签对应的视频列表数据
     let videoListData = await request('/video/group', {id: this.data.navId});
-    console.log(videoListData);
+    let index = 0;
+    let videoList = videoListData.datas.map(item => {
+      item.id = index++;
+      return item;
+    })
+    this.setData({
+      videoList
+    })
   },
 
   // 切换导航id

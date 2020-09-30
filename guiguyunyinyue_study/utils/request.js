@@ -30,7 +30,17 @@ import config from './config'
 /**  2020/9/30
   作者: Created by zhiyongzaixian
   说明: 操作cookie流程说明：
-    
+    1. 需要本地读取cookie
+      1) 有
+      2) 没有
+    2. 有cookie
+      1) 获取到的是一个数组，需要的cookie是该数组中某一个字段(包含MUSIC_U) find找到某一个元素就停止查找
+      2) /MUSIC_U/ 表达的意思包含MUSIC_U ---> /MUSIC_U/.test(item)
+      3) 拆分字符串： split()   面试题： 如何判断一个字符串是否是回文
+    3. 没有cookie
+      1) 预处理，防止报错
+      2) 实现： 如果本地cookie，设置cookie为空串
+  
 */
 
 

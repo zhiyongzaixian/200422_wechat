@@ -16,4 +16,12 @@
       </view>
     </view>
   </scroll-view>
+
+
+  <!-- 视频列表 -->
+  <scroll-view scroll-y class="videoScroll">
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+      <video src="{{item.data.urlInfo.url}}"></video>
+    </view>
+  </scroll-view>
 </view>
