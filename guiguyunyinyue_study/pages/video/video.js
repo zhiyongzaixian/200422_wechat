@@ -179,7 +179,21 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    console.log(res);
 
+    if(res.from === 'button'){
+      return {
+        title: '这是button的转发内容',
+        path: '/pages/video/video',
+        imageUrl: '/static/images/nvsheng.jpg'
+      }
+    }else {
+      return {
+        title: '这是menu的转发内容',
+        path: '/pages/video/video',
+        imageUrl: '/static/images/nvsheng.jpg'
+      }
+    }
   }
 })
