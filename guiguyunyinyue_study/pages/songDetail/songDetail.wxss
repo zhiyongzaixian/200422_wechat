@@ -1,0 +1,91 @@
+/* pages/songDetail/songDetail.wxss */
+
+.songDetailContainer {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 底座 */
+.circle {
+  position: relative;
+  z-index: 100;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #fff;
+  margin: 10rpx 0;
+}
+
+/* 摇杆 */
+.needle {
+  position: relative;
+  z-index: 99;
+  left: 60rpx;
+  top: -40rpx;
+  width: 192rpx;
+  height: 274rpx;
+  transform-origin: 40rpx 0;
+  transform: rotate(-20deg);
+  transition: transform 1s linear;
+}
+
+
+.needle.needleAnimate {
+  transform: rotate(0deg);
+}
+
+/* 磁盘 */
+.disContainer {
+  position: relative;
+  top: -170rpx;
+  width: 598rpx;
+  height: 598rpx;
+
+}
+
+.disContainer.discAnimate {
+  /* 规定动画属性 */
+  animation: disc 4s linear infinite;
+  animation-delay: 1s;
+}
+/*
+@keyframes:
+  1. from to:
+    1) 只有两帧(起始， 结束)
+    2) 动画是平滑过渡的动画
+  2. 百分比
+    1) 起始帧是0%， 结束帧100%
+    2) 人为设定当前动画的帧数
+    3) 适用于较为复杂的动画
+
+
+*/
+@keyframes disc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.disContainer .disc {
+  width: 598rpx;
+  height: 598rpx;
+}
+
+
+.musicImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
