@@ -30,6 +30,14 @@ Page({
     })
   },
 
+  // 跳转至songDetail
+  toSongDetail(event){
+    let song = event.currentTarget.dataset.song;
+    let musicId = event.currentTarget.dataset.musicid;
+    wx.navigateTo({
+      url: '/pages/songDetail/songDetail?musicId=' + musicId
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
