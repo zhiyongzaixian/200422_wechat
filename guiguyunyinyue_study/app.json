@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/recommend/recommend",
     "pages/video/video",
     "pages/login/login",
-
     "pages/personal/personal",
     "pages/index/index"
   ],
