@@ -66,6 +66,10 @@
   padding: 0 3%;
   box-sizing: border-box;
   margin-top: 20rpx;
+  /*calc: 可以动态计算宽高, 注意点： 减号左右两侧必须加空格*/
+  /*  vh vw 是口袋单位： 1vh = 1%视口高度*/
+  height: calc(100vh - 100rpx) ;
+  /*height: calc(100vh - 180rpx) ;*/
 }
 
 /*.videoItem video {*/
