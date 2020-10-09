@@ -21,9 +21,17 @@
   <!-- 视频列表 -->
   <scroll-view scroll-y class="videoScroll">
     <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
-      <video src="{{item.data.urlInfo.url}}"></video>
+      <video
+          src="{{item.data.urlInfo.url}}"
+          bindplay="handlePlay"
+          id="{{item.data.vid}}"
+          poster="{{item.data.coverUrl}}"
+          object-fit="fill"
+          class="common"
+          wx:if="{{item.data.vid === videoId}}"
+      ></video>
 
-
+      <image wx:else id="{{item.data.vid}}" bindtap="handlePlay" class="common" src="{{item.data.coverUrl}}"></image>
 
       <view class="content">{{item.data.title}}</view>
 
@@ -39,7 +47,7 @@
             <text class="iconfont icon-pinglun1"></text>
             <text class="count">{{item.data.commentCount}}</text>
           </text>
-          <button open-type="share" class="item btn">
+          <button class="item btn">
             <text class="iconfont icon-gengduo"></text>
           </button>
         </view>

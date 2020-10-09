@@ -8,6 +8,7 @@ Page({
     videoGroupList: [], // 导航标签的数据
     navId: '', // 导航标签的id
     videoList: [], // 视频列表数据
+    videoId: '', // 视频id标识
   },
 
   /**
@@ -70,6 +71,39 @@ Page({
     })
     this.getVideoList(this.data.navId);
     
+  },
+  
+  // 点击开始/继续播放的视频回调
+  handlePlay(event){
+    let vid = event.target.id;
+    
+    /*
+    * 思考： 如何找到上一个播放视频的标签实例
+    *   1. 首次点击播放： this.videoContext === undefined
+    *   2. 再次点击播放： this.videoContext === 上次点击播放视频的实例
+    * js设计模式： 单例模式
+    *   1. 原本需要生成多个对象的模式，现在只需要一个对象去控制，在生成新的对象的时候就把之前的对象覆盖掉
+    * js设计模式： 工厂函数模式
+    *   1. 批量生产多个对象
+    *   2. 生成的多个对象属性大致相同
+    *   3. 不能明确到底生产出来的对象到底是谁的实例
+    * */
+    // 创建控制video标签的实例
+  
+    this.setData({
+      videoId: vid
+    })
+    // this.vid !== vid && this.videoContext && this.videoContext.stop();
+    
+    // if(this.videoContext){
+    //   if(this.vid !== vid){
+    //     this.videoContext.stop();
+    //   }
+    // }
+    // this.vid = vid;
+    this.videoContext = wx.createVideoContext(vid);
+    this.videoContext.play();
+    // this.videoContext.stop();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

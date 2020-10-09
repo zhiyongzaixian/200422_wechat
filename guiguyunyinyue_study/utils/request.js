@@ -60,7 +60,7 @@ export default (url, data={}, method='GET') => {
         cookie: cookie
       },
       success: (res) => {
-        console.log(res);
+        // console.log(res);
         // 当前的请求是登录请求
         if(data.isLogin){
           // 将对应的cookies存入至本地
