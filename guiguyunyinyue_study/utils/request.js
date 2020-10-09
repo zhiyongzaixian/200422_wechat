@@ -44,7 +44,8 @@ import config from './config'
 */
 
 
-let cookie = wx.getStorageSync('cookie')?wx.getStorageSync('cookie').find(item => /MUSIC_U/.test(item)).split(';')[0]:'';
+// let cookie = wx.getStorageSync('cookie')?wx.getStorageSync('cookie').find(item => /MUSIC_U/.test(item)).split(';')[0]:'';
+let cookie = wx.getStorageSync('cookie')?wx.getStorageSync('cookie').find(item => item.indexOf('MUSIC_U') !== -1).split(';')[0]:'';
 
 
 export default (url, data={}, method='GET') => {

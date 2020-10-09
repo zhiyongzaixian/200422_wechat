@@ -12,3 +12,6 @@ let isHuiWen2 = str => str.split('').reverse().join('') === str;
 
 console.log(isHuiWen(str));
 console.log(isHuiWen(str3));
+
+
+
