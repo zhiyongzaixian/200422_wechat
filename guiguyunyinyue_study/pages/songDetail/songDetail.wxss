@@ -137,7 +137,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100rpx;
   height: 4rpx;
   border-radius: 2rpx;
   background: red;

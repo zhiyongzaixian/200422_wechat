@@ -12,15 +12,15 @@
 
   <!-- 进度条区域 -->
   <view class="progressContainer">
-    <text>00:00</text>
+    <text>{{currentTime}}</text>
     <view class="barContainer">
-      <view class="currentBar">
+      <view class="currentBar" style="width: {{currentWidth + 'rpx'}}">
         <view class="audio-circle">
 
         </view>
       </view>
     </view>
-    <text>00:00</text>
+    <text>{{durationTime}}</text>
   </view>
 
 
