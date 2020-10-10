@@ -24,16 +24,7 @@ Page({
     // 原生的小程序中对路由传参长度有限制，如果过长会自动截取
     // console.log(JSON.parse(options.song));
     let musicId = options.musicId;
-    let songDetailData = await request('/song/detail', {ids: musicId});
-    this.setData({
-      songDetail: songDetailData.songs[0],
-      musicId
-    })
-    
-    // 动态设置窗口标题
-    wx.setNavigationBarTitle({
-      title: this.data.songDetail.name
-    })
+    this.getMusicInfo(musicId);
   
     // 判断当前页面的音乐是否在播放
     if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
@@ -61,10 +52,30 @@ Page({
     
     
     // 订阅recommend发布的消息
-    PubSub.subscribe('musicId', (msg, musicId) => {
+    
+  
+    PubSub.subscribe('musicId',  (msg, musicId) => {
       console.log('recommend发布的消息： ', musicId);
+      // 获取音乐信息
+      this.getMusicInfo(musicId);
+      // 自动播放当前音乐
+      this.musicControl(true, musicId);
     })
     
+  },
+  
+  // 封装获取音乐详情的功能函数
+  async getMusicInfo(musicId){
+    let songDetailData = await request('/song/detail', {ids: musicId});
+    this.setData({
+      songDetail: songDetailData.songs[0],
+      musicId
+    })
+  
+    // 动态设置窗口标题
+    wx.setNavigationBarTitle({
+      title: this.data.songDetail.name
+    })
   },
   // 封装修改状态的函数
   changeMusicPlayState(isPlay){
@@ -110,6 +121,8 @@ Page({
   switchSong(event){
     let type = event.target.id;
     
+    // 停止当前音乐的播放
+    this.backgroundAudioManager.stop();
     /*
     * 思路：
     *    1. 当前页面只有当前一首音乐的信息，没有办法找到上一首或者下一首音乐的信息
@@ -153,7 +166,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // 取消订阅
+    PubSub.unsubscribe('musicId');
   },
 
   /**
