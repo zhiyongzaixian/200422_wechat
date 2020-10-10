@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import request from '../../utils/request'
 
 // 获取全局唯一的应用实例：
@@ -12,6 +13,7 @@ Page({
     isPlay: false, // 标识音乐是否在播放
     songDetail: {}, // 音乐详情
     musicId: '', // 音乐id
+    musicLink: '', // 音乐链接
   },
 
   /**
@@ -57,6 +59,12 @@ Page({
       this.changeMusicPlayState(false);
     })
     
+    
+    // 订阅recommend发布的消息
+    PubSub.subscribe('musicId', (msg, musicId) => {
+      console.log('recommend发布的消息： ', musicId);
+    })
+    
   },
   // 封装修改状态的函数
   changeMusicPlayState(isPlay){
@@ -73,28 +81,52 @@ Page({
     this.setData({
       isPlay
     })
-    let {musicId} = this.data;
-    this.musicControl(isPlay, musicId);
+    let {musicId, musicLink} = this.data;
+    this.musicControl(isPlay, musicId, musicLink);
   },
   // 封装控制音乐播放/暂停的功能函数
-  async musicControl(isPlay, musicId){
+  async musicControl(isPlay, musicId, musicLink){
     
     if(isPlay){ // 播放
-      let musicLinkData = await request('/song/url', {id: musicId});
-      let musicLink = musicLinkData.data[0].url;
+      // 之前没有现成的音乐链接
+      if(!musicLink){
+        let musicLinkData = await request('/song/url', {id: musicId});
+        musicLink = musicLinkData.data[0].url;
+  
+        this.setData({
+          musicLink
+        })
+      }
       this.backgroundAudioManager.src = musicLink;
       this.backgroundAudioManager.title = this.data.songDetail.name;
       
-      
-      
     }else { // 暂停
       this.backgroundAudioManager.pause(); // 暂停
-  
-      
-      
     }
   },
   
+  
+  // 点击切换歌曲的回调
+  switchSong(event){
+    let type = event.target.id;
+    
+    /*
+    * 思路：
+    *    1. 当前页面只有当前一首音乐的信息，没有办法找到上一首或者下一首音乐的信息
+    *    2. recommend页面有音乐列表数据
+    *    3. 需要将切换歌曲的类型交给 recommend 页面
+    *
+    *
+    * */
+    // 发布消息给recommend页面
+    PubSub.publish('switchType', type);
+    // PubSub.subscribe('musicId', (msg, musicId) => {
+    //   console.log('recommend发布的消息： ', musicId);
+    //
+    //   // 取消订阅
+    //   PubSub.unsubscribe('musicId')
+    // })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
