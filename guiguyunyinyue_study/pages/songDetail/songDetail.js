@@ -1,4 +1,8 @@
 import request from '../../utils/request'
+
+// 获取全局唯一的应用实例：
+const appInstance = getApp();
+console.log(appInstance);
 Page({
 
   /**
@@ -28,6 +32,38 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.songDetail.name
     })
+  
+    // 判断当前页面的音乐是否在播放
+    if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
+      // 当前页面音乐在播放
+      this.setData({
+        isPlay: true
+      })
+    }
+  
+    // 创建管理音频的实例
+    this.backgroundAudioManager = wx.getBackgroundAudioManager();
+    // 播放
+    this.backgroundAudioManager.onPlay(() => {
+      this.changeMusicPlayState(true);
+      appInstance.globalData.musicId = musicId;
+    })
+    // 暂停
+    this.backgroundAudioManager.onPause(() => {
+      this.changeMusicPlayState(false);
+    })
+    // 停止
+    this.backgroundAudioManager.onStop(() => {
+      this.changeMusicPlayState(false);
+    })
+    
+  },
+  // 封装修改状态的函数
+  changeMusicPlayState(isPlay){
+    this.setData({
+      isPlay
+    })
+    appInstance.globalData.isMusicPlay = isPlay;
   },
   
   // 点击播放/暂停的回调
@@ -42,15 +78,20 @@ Page({
   },
   // 封装控制音乐播放/暂停的功能函数
   async musicControl(isPlay, musicId){
-    // 创建管理音频的实例
-    let backgroundAudioManager = wx.getBackgroundAudioManager();
+    
     if(isPlay){ // 播放
       let musicLinkData = await request('/song/url', {id: musicId});
       let musicLink = musicLinkData.data[0].url;
-      backgroundAudioManager.src = musicLink;
-      backgroundAudioManager.title = this.data.songDetail.name;
+      this.backgroundAudioManager.src = musicLink;
+      this.backgroundAudioManager.title = this.data.songDetail.name;
+      
+      
+      
     }else { // 暂停
-      backgroundAudioManager.pause(); // 暂停
+      this.backgroundAudioManager.pause(); // 暂停
+  
+      
+      
     }
   },
   
