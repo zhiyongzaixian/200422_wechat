@@ -56,6 +56,14 @@ Page({
     //   topList: resultArr
     // })
   },
+  
+  // 跳转至recommend页面
+  toRecommend(){
+    
+    wx.navigateTo({
+      url: '/songPackage/pages/recommend/recommend'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

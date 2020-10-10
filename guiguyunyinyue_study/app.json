@@ -1,11 +1,9 @@
 {
   "pages": [
-    "pages/recommend/recommend",
-    "pages/songDetail/songDetail",
+    "pages/index/index",
     "pages/video/video",
     "pages/login/login",
-    "pages/personal/personal",
-    "pages/index/index"
+    "pages/personal/personal"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
@@ -37,5 +35,21 @@
       }
     ]
   },
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": ["audio"],
+  "subpackages": [
+    {
+      "root": "songPackage",
+      "name": "song",
+      "pages": [
+        "pages/recommend/recommend",
+        "pages/songDetail/songDetail"
+      ],
+      "independent": true
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "packages": ["song"]
+    }
+  }
 }

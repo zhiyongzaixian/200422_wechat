@@ -1,6 +1,6 @@
 import PubSub from 'pubsub-js'
 import moment from 'moment'
-import request from '../../utils/request'
+import request from '../../../utils/request'
 
 // 获取全局唯一的应用实例：
 const appInstance = getApp();
