@@ -2,9 +2,10 @@
   "name": "route-demo",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
-    "connect-multiparty": "^2.2.0"
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5"
   }
 }

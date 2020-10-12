@@ -18,6 +18,8 @@
 
 const express = require('express');
 const path = require('path');
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart();
 const app = new express();
 
 
@@ -25,20 +27,23 @@ const app = new express();
 // express.json() 用来处理post请求 application/json 的请求参数
 // express.urlencoded() 用来处理post请求 x-www--form-urlencoded的请求参数： a1=value1&b1=value2
 // 全局使用， 通常放在所有请求的上边
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // __dirname：绝对根路径
 app.use(express.static(path.resolve(__dirname, 'public')))
+app.use(multipartMiddleware);
 
-app.post('/login', (req, res) => {
+// 局部使用
+app.post('/login', multipartMiddleware,  (req, res) => {
   console.log(req.body);
   res.send('post请求返回的数据');
 })
 
 
-
-
+app.post('/login2',  (req, res) => {
+  console.log(req.body);
+  res.send('post请求返回的数据');
+})
 
 app.listen('3001', (err) => {
   if(err){
