@@ -8548,8 +8548,8 @@ function _default(url) {var data = arguments.length > 1 && arguments[1] !== unde
   return new Promise(function (resolve, reject) {
     // 执行异步任务
     uni.request({
-      url: _config.default.host + url, // 小程序
-      // url, // H5
+      //url: config.host + url, // 小程序
+      url: url, // H5
       data: data,
       method: method,
       success: function success(res) {
@@ -10347,16 +10347,27 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
-  initData: '初始化测试数据' };
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var state = {
+  initData: '初始化测试数据',
+  indexData: {} // 主页的数据
+};
+
+var mutations = {
+  // 修改主页数据
+  changeIndexDataMutation: function changeIndexDataMutation(state, indexData) {
+    state.indexData = indexData;
+  } };
 
 
-var mutations = {};
+
+var actions = {
+  getIndexDataAction: function () {var _getIndexDataAction = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {var commit, indexData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:commit = _ref.commit;_context.next = 3;return (
 
 
-
-
-var actions = {};
+                (0, _request.default)('/api/getIndexData'));case 3:indexData = _context.sent; // H5
+              // 2. 触发mutation，将异步数据交给mutation
+              commit('changeIndexDataMutation', indexData);case 5:case "end":return _context.stop();}}}, _callee, this);}));function getIndexDataAction(_x) {return _getIndexDataAction.apply(this, arguments);}return getIndexDataAction;}() };
 
 
 

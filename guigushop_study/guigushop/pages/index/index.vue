@@ -11,72 +11,52 @@
 		</view>
 	
 		<!-- 导航区域  -->
-		<scroll-view scroll-x="true" class="navScroll" enable-flex>
-			<view class="navItem">
-				每日推荐
+		<scroll-view scroll-x="true" class="navScroll" enable-flex v-if="indexData.kingKongModule">
+			<view class="navItem" :class="{active: navIndex === -1}"  @click="changeNav(-1)">
+				推荐
 			</view>
-			<view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
-			</view><view class="navItem">
-				每日推荐
+			<view class="navItem " :class="{active: navIndex === index}" @click="changeNav(index)"  v-for="(item, index) in indexData.kingKongModule.kingKongList" :key='item.L1Id'>
+				{{item.text}}
 			</view>
 		</scroll-view>
 	
-		
 	</view>
 </template>
 
 <script>
+	import {mapState, mapActions, mapMutations} from 'vuex'
 	import request from '../../utils/request.js'
 	export default {
 		data() {
 			return {
-				
+				navIndex: -1
 			};
 		},
+		
 		mounted() {
-			this.getIndexData();
-			
-			console.log(this.$store.state.home.initData)
+			// this.getIndexData();
+			// 组件实例和store耦合度太高
+			// this.$store.dispatch('getIndexDataAction')
+			// console.log(this.$store.state.home.initData)
+			this.getIndexDataAction();
 		},
 		methods: {
+			...mapActions({
+				getIndexDataAction: 'getIndexDataAction'
+			}),
 			async getIndexData(){
 				let result = await request('/getIndexData')  // 小程序
 				// let result = await request('/api/getIndexData') // H5
-				console.log('result: ', result)
+			},
+			// 点击切换导航标识
+			changeNav(navIndex){
+				this.navIndex = navIndex
 			}
+		},
+		computed: {
+			...mapState({
+				indexData: state => state.home.indexData
+			})
 		}
 	}
 </script>
@@ -131,6 +111,9 @@
 				text-align center
 				line-height 80rpx
 				font-size 26rpx
+				/* &: 父级引用， 代表所处位置的父级 */
+				&.active
+					border-bottom 1rpx solid #BB2C08
 
 
 .test
