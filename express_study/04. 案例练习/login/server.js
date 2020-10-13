@@ -1,10 +1,12 @@
 const express = require('express');
-
+const path = require('path');
 // 1. 创建应用实例
 const app = new express();
 const cors = require('cors');
 app.use(express.json())
-app.use(cors())
+app.use(express.static(path.resolve(__dirname, 'public')))
+
+// app.use(cors())
 
 
 // app.use((req, res, next) => {
@@ -17,7 +19,7 @@ app.use(cors())
 //   })
 //
 //   next();
-// })
+// }
 
 app.post('/login', (req, res) => {
   // 1. 获取请求参数
