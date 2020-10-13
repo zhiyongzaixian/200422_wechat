@@ -1,11 +1,16 @@
 const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
+
 const router = require('./router');
 
 const app = new Koa();
 
+// app.use(bodyParser());
 app
+  .use(bodyParser())
   .use(router.routes()) // 允许使用路由
   .use(router.allowedMethods()) // 声明使用路由的方法
+
 
 
 app.listen('3000', (err) => {
