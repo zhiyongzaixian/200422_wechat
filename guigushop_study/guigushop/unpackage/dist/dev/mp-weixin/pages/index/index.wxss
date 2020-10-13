@@ -1,15 +1,16 @@
 /* 
-	stylus
-	： 1.省略大括号
-		 2.省略封号和冒号
-		 3.支持样式嵌套
- 
- */
+		stylus
+		： 1.省略大括号
+			 2.省略封号和冒号
+			 3.支持样式嵌套
+	 
+	 */
 .indexContainer .header {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding: 10rpx 0;
 }
 .indexContainer .header .logo {
   width: 140rpx;
@@ -17,8 +18,24 @@
   margin: 10rpx 30rpx;
 }
 .indexContainer .header .search {
+  position: relative;
   width: 420rpx;
   height: 60rpx;
+  background: #eee;
+}
+.indexContainer .header .search .iconfont {
+  position: absolute;
+  font-size: 30rpx;
+  top: 15rpx;
+  left: 10rpx;
+}
+.indexContainer .header .search input {
+  height: 60rpx;
+  width: 370rpx;
+  margin-left: 50rpx;
+}
+.indexContainer .header .search input .placeholder {
+  font-size: 26rpx;
 }
 .indexContainer .header button {
   width: 144rpx;
@@ -28,5 +45,20 @@
   font-size: 24rpx;
   color: #bb2c08;
   padding: 0 4rpx;
+  margin: 0 10rpx;
+}
+.indexContainer .navScroll {
+  white-space: nowrap;
+}
+.indexContainer .navScroll .navItem {
+  display: inline-block;
+  width: 140rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 26rpx;
+}
+.test {
+  font-size: 0;
 }
 
