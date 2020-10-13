@@ -4,7 +4,7 @@
 		<view class="header">
 			<image class="logo" src="/static/images/logo.png" mode=""></image>
 			<view class="search">
-				<text class="iconfont icon-search1"></text>
+				<text class="iconfont icon-sousuo"></text>
 				<input type="text" placeholder="搜索商品" placeholder-class="placeholder">
 			</view>
 			<button>北方汉子</button>
@@ -53,6 +53,8 @@
 				每日推荐
 			</view>
 		</scroll-view>
+	
+		
 	</view>
 </template>
 
@@ -66,10 +68,13 @@
 		},
 		mounted() {
 			this.getIndexData();
+			
+			console.log(this.$store.state.home.initData)
 		},
 		methods: {
 			async getIndexData(){
-				let result = await request('/getIndexData')
+				let result = await request('/getIndexData')  // 小程序
+				// let result = await request('/api/getIndexData') // H5
 				console.log('result: ', result)
 			}
 		}

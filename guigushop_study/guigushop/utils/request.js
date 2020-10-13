@@ -3,7 +3,8 @@ export default (url, data={}, method='GET') => {
 	return new Promise((resolve, reject) => {
 		// 执行异步任务
 		uni.request({
-			url: config.host + url,
+			url: config.host + url, // 小程序
+			// url, // H5
 			data,
 			method,
 			success: (res) => {
