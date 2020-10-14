@@ -20,19 +20,27 @@
 			</view>
 		</scroll-view>
 	
+		<!-- 内容区 -->
+		<scroll-view scroll-y="true" class="contentScroll">
+			<Recommend></Recommend>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	import {mapState, mapActions, mapMutations} from 'vuex'
 	import request from '../../utils/request.js'
+	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
+		
 		data() {
 			return {
 				navIndex: -1
 			};
 		},
-		
+		components:{
+			Recommend
+		},
 		mounted() {
 			// this.getIndexData();
 			// 组件实例和store耦合度太高
@@ -110,12 +118,12 @@
 				height 80rpx
 				text-align center
 				line-height 80rpx
+				box-sizing border-box
 				font-size 26rpx
 				/* &: 父级引用， 代表所处位置的父级 */
 				&.active
 					border-bottom 1rpx solid #BB2C08
+		.contentScroll
+			height calc(100vh - 160rpx)
 
-
-.test
-	font-size 0
 </style>

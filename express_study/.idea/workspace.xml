@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a83fa11d-8171-42c7-9a06-1a1a46b6043e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05. koa/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/05. koa/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05. koa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/05. koa/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05. koa/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/05. koa/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05. koa/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/05. koa/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../guigushop_study/guigushop/store/modules/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../guigushop_study/guigushop/store/modules/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../guigushop_study/guigushop/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../guigushop_study/guigushop/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../guigushop_study/guigushop/unpackage/dist/dev/mp-weixin/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../guigushop_study/guigushop/unpackage/dist/dev/mp-weixin/common/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../guigushop_study/guigushop/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/../guigushop_study/guigushop/utils/request.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,10 +20,11 @@
     <session id="-1156529802">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -66,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/05. koa/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="220">
+              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -76,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/05. koa/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
-              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -84,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01. express初体验/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="704">
               <caret line="32" column="46" selection-start-line="25" selection-start-column="2" selection-end-line="32" selection-end-column="46" />
             </state>
           </provider>
@@ -148,7 +148,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="148" />
     <option name="y" value="36" />
     <option name="width" value="1388" />
@@ -162,7 +162,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,12 +178,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../code/guiguyunyinyue_study" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -225,18 +225,18 @@
       <updated>1602474029080</updated>
       <workItem from="1602474030347" duration="13738000" />
       <workItem from="1602546764831" duration="7060000" />
+      <workItem from="1602587526857" duration="483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20798000" />
+    <option name="totallyTimeSpent" value="21281000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="754" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16591929" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16592261" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
@@ -405,24 +405,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01. express初体验/index.js">
+    <entry file="file://$PROJECT_DIR$/05. koa/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="46" selection-start-line="25" selection-start-column="2" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="220">
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/05. koa/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/05. koa/server.js">
+    <entry file="file://$PROJECT_DIR$/01. express初体验/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="704">
+          <caret line="32" column="46" selection-start-line="25" selection-start-column="2" selection-end-line="32" selection-end-column="46" />
         </state>
       </provider>
     </entry>

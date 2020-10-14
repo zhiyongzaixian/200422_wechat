@@ -1,10 +1,10 @@
 /* 
-		stylus
-		： 1.省略大括号
-			 2.省略封号和冒号
-			 3.支持样式嵌套
-	 
-	 */
+	stylus
+	： 1.省略大括号
+		 2.省略封号和冒号
+		 3.支持样式嵌套
+ 
+ */
 .indexContainer .header {
   display: -webkit-box;
   display: -webkit-flex;
@@ -56,13 +56,15 @@
   height: 80rpx;
   text-align: center;
   line-height: 80rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 26rpx;
 /* &: 父级引用， 代表所处位置的父级 */
 }
 .indexContainer .navScroll .navItem.active {
   border-bottom: 1rpx solid #bb2c08;
 }
-.test {
-  font-size: 0;
+.indexContainer .contentScroll {
+  height: calc(100vh - 160rpx);
 }
 
