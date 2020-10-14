@@ -124,7 +124,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  props: ['categoryModule'],
+  // props: ['categoryModule'],
+  props: {
+    categoryModule: {
+      type: Array,
+      required: true } },
+
+
   mounted: function mounted() {
     console.log('1', this.categoryModule);
   } };exports.default = _default;

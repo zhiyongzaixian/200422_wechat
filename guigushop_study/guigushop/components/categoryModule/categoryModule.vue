@@ -17,7 +17,13 @@
 
 <script>
 	export default {
-		props: ['categoryModule'],
+		// props: ['categoryModule'],
+		props: {
+			categoryModule: {
+				type: Array,
+				required: true
+			}
+		},
 		mounted() {
 			console.log('1', this.categoryModule)
 		}

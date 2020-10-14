@@ -1,0 +1,35 @@
+{
+	"provinces": [
+		{
+			"name": "河北省",
+			"id": 123
+		},
+		{
+			"name": "山西省",
+			"id":256
+		}
+	],
+	"cities": [
+		{
+			"name" : "石家庄市",
+			"id": 1100,
+			"parentId": 123
+		},
+		{
+			"name" : "保定市",
+			"id": 1103,
+			"parentId": 123
+		},
+		{
+			"name" : "太原市",
+			"id": 1234,
+			"parentId": 256
+		},
+		{
+			"name" : "大同市",
+			"id": 1235,
+			"parentId": 256
+		}
+	],
+	"coutries": []
+}
