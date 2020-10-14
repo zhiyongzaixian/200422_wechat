@@ -23,9 +23,10 @@
 }
 .cateGoryContainer .contentContainer .leftContainer {
   width: 20%;
+  height: 100%;
 }
 .cateGoryContainer .contentContainer .leftContainer .leftScroll {
-  height: calc(100vh - 82rpx);
+  height: 100%;
 }
 .cateGoryContainer .contentContainer .leftContainer .leftScroll .navItem {
   position: relative;
@@ -45,6 +46,34 @@
 }
 .cateGoryContainer .contentContainer .rightContainer {
   width: 80%;
-  background: #008000;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll {
+  height: 100%;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll .rightImg {
+  display: block;
+  width: 520rpx;
+  height: 190rpx;
+  margin: 10rpx auto;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll .shopList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll .shopList .shopItem {
+  width: 33.333%;
+  text-align: center;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll .shopList .shopItem image {
+  width: 90%;
+  height: 144rpx;
+}
+.cateGoryContainer .contentContainer .rightContainer .rightScroll .shopList .shopItem text {
+  font-size: 24rpx;
 }
 

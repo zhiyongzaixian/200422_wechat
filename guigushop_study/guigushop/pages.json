@@ -6,6 +6,13 @@
     },
     "pages" : [
 			{
+				"path" : "pages/personal/personal",
+				"style" : {
+					"navigationBarTitleText" : "个人中心",
+					"navigationBarBackgroundColor" : "#eed7b5"
+				}
+			},
+			{
 			    "path" : "pages/category/category",
 			    "style" : {
 						"navigationBarTitleText" : "分类页"
@@ -24,11 +31,10 @@
 					"navigationBarTitleText" : "购物车"
 				}
 			},
+			
 			{
-				"path" : "pages/personal/personal",
-				"style" : {
-					"navigationBarTitleText" : "个人中心"
-				}
+				"path" : "pages/login/login",
+				"style" : {}
 			}
     ],
 		"tabBar": {

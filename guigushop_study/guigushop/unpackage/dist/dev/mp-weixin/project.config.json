@@ -4,11 +4,12 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false
+    "urlCheck": false,
+    "es6": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.7.0",
-  "appid": "touristappid",
+  "appid": "wx810e8b1fde386fde",
   "projectname": "guigushop",
   "condition": {
     "search": {

@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="header">
-			<image class="userImg" :src="userInfo.avatarUrl?userInfo.avatarUrl:'../../static/images/personal/personal.png'" mode=""></image>
+			<image class="userImg" src="../../static/images/personal/personal.png" mode=""></image>
 			<div class='userInfo' @click='toLogin'>
-				<p>{{userInfo.nickName?userInfo.nickName:'未登录'}}</p>
+				<p>未登录</p>
 			</div>
 		</div>
 		
@@ -95,21 +95,11 @@
 			}
 		},
 		mounted(){
-			wx.getUserInfo({
-				success: (res) => {
-					console.log(res);
-					this.userInfo = res.userInfo;
-				},
-				fail: (err) => {
-					console.log('获取用户信息失败')
-				}
-			})
+			
 		},
 		methods: {
 			toLogin(){
-				wx.navigateTo({
-					url: '/pages/login/login'
-				})
+				
 			}
 		},
 	}
