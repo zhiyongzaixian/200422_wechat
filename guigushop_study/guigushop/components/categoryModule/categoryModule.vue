@@ -23,9 +23,6 @@
 				type: Array,
 				required: true
 			}
-		},
-		mounted() {
-			console.log('1', this.categoryModule)
 		}
 	}
 </script>

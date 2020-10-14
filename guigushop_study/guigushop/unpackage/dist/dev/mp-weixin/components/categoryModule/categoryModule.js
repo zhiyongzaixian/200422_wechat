@@ -128,12 +128,7 @@ var _default =
   props: {
     categoryModule: {
       type: Array,
-      required: true } },
-
-
-  mounted: function mounted() {
-    console.log('1', this.categoryModule);
-  } };exports.default = _default;
+      required: true } } };exports.default = _default;
 
 /***/ }),
 

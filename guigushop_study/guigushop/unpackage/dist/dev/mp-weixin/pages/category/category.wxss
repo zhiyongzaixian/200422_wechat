@@ -1,0 +1,50 @@
+.cateGoryContainer .header {
+  padding: 10rpx 0;
+}
+.cateGoryContainer .header .search {
+  width: 92%;
+  height: 60rpx;
+  background: #eee;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin: 0 auto;
+}
+.cateGoryContainer .contentContainer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1rpx solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: calc(100vh - 80rpx);
+}
+.cateGoryContainer .contentContainer .leftContainer {
+  width: 20%;
+}
+.cateGoryContainer .contentContainer .leftContainer .leftScroll {
+  height: calc(100vh - 82rpx);
+}
+.cateGoryContainer .contentContainer .leftContainer .leftScroll .navItem {
+  position: relative;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+.cateGoryContainer .contentContainer .leftContainer .leftScroll .navItem.active:before {
+  position: absolute;
+  top: 10rpx;
+  left: 6rpx;
+  content: '';
+  width: 2rpx;
+  height: 60rpx;
+  background: #bb2c08;
+}
+.cateGoryContainer .contentContainer .rightContainer {
+  width: 80%;
+  background: #008000;
+}
+

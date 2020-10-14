@@ -18,5 +18,11 @@ router.get('/getindexCateList', (ctx) => {
 	ctx.body = indexCateListData;
 });
 
+// 分类页的数据
+const categoryDatas = require('../datas/categoryDatas.json');
+router.get('/getCateGoryDatas', (ctx) => {
+	ctx.body = categoryDatas;
+});
+
 
 module.exports = router;
