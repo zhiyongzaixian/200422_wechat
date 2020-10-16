@@ -170,7 +170,7 @@ const mutations = {
 		 */
 		
 		let shopObj = state.cartList.find(item => item.id === shopItem.id);
-		if(shopObj){ // 车已有该商品
+		if(shopObj){ // 已有该商品
 			shopObj.count += 1;
 			// console.log(state.cartList)
 		}else { // 没有该商品
@@ -184,6 +184,35 @@ const mutations = {
 			Vue.set(shopItem, 'selected', true)
 			state.cartList.push(shopItem)
 		}
+	},
+	// 修改商品数量
+	// 注意点： mutation只接收两个参数， 第一个参数是state， 第二个参数是调用mutation传递的实参数据
+	changeCountMutation(state, {isAdd, index}){
+		if(isAdd){
+			state.cartList[index].count += 1;
+		}else {// 减
+			// 判断商品的数量是否大于1
+			if(state.cartList[index].count > 1){
+				state.cartList[index].count -= 1;
+			}else {
+				wx.showModal({
+					content: '你确认删除该商品吗',
+					success: (res) => {
+						if(res.confirm){
+							// 用户确认删除商品
+							state.cartList.splice(index, 1)
+						}
+					}
+				})
+			}
+		}
+	},
+	changeSelectedMutation(state, {isSelected, index}){
+		state.cartList[index].selected = isSelected;
+	},
+	// 修改全选/全不选的状态
+	changeAllSelectedMutation(state, allSelected){
+		state.cartList.forEach(item => item.selected = allSelected)
 	}
 }
 
@@ -192,7 +221,20 @@ const actions = {
 }
 
 const getters = {
-	
+	isAllSelected(state){
+		// every(所有的元素都满足条件) VS some(只要 有一个满足条件就为true)
+		return state.cartList.every(item => item.selected)
+	},
+	totalCount(state){
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected?shopItem.count:0;
+		}, 0)
+	},
+	totalPrice(state){
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected?shopItem.count * shopItem.retailPrice:0;
+		}, 0)
+	}
 }
 
 export default {
