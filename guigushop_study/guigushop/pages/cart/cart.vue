@@ -145,6 +145,7 @@
 				color #7f7f7f
 				line-height 60rpx
 		.cartList
+			margin-bottom 96rpx
 			.cartItem
 				position relative
 				display flex
@@ -190,9 +191,9 @@
 							border-top 1upx solid #EEEEEE
 							border-bottom 1upx solid #EEEEEE
 		.cartFooter
-			position absolute
+			position fixed
 			display flex	
-			bottom 2rpx
+			bottom 0rpx
 			height 96upx
 			line-height 96upx
 			width 100%

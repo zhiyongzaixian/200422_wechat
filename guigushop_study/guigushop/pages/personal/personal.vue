@@ -44,6 +44,7 @@
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	module.exports = {
 		data(){
 			return {
@@ -102,6 +103,19 @@
 				},
 				fail: (err) => {
 					console.log('获取用户信息失败')
+				}
+			})
+			
+			
+			// 获取用户唯一标识
+			wx.login({
+				success: async (res) => {
+					// 获取用户登录凭证
+					let code = res.code;
+					// 将code发送给自己的服务器
+					let token = await request('/getOpenId', {code});
+					console.log('服务器端返回的数据: ', token);
+					wx.setStorageSync('token', token)
 				}
 			})
 		},
